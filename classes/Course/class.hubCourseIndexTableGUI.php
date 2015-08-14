@@ -28,7 +28,7 @@ class hubCourseIndexTableGUI extends arIndexTableGUI {
 
         $field = $this->getField("parent_id");
         $field->setVisibleDefault(true);
-        $field->setHasFilter(true);
+        $field->setHasFilter(false);
         $field->setPosition(20);
 
         $field = $this->getField("creation_date");
