@@ -111,3 +111,11 @@ hubMembership::updateDB();
 require_once('./Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/Hub/classes/Course/class.hubCourse.php');
 hubCourse::updateDB();
 ?>
+<#12>
+<?php
+global $ilDB;
+$db = $ilDB;
+require_once('./Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/Hub/classes/User/class.hubUser.php');
+$db->modifyTableColumn(hubUser::returnDbTableName(), 'gender', array('type' => 'text', 'length' => 4));
+
+?>
