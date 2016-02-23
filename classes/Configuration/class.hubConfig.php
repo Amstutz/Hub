@@ -124,11 +124,10 @@ class hubConfig extends ActiveRecord {
 
 
 	/**
-	 * @param $name
-	 *
-	 * @return string
+	 * @param string $name
+	 * @return mixed
 	 */
-	public static function get($name) {
+	public static function get($name = '') {
 		if (! isset(self::$cache_loaded[$name])) {
 			$obj = self::find($name);
 			if ($obj === NULL) {
