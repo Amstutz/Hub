@@ -40,7 +40,7 @@ class hubContext extends ilContext {
 	 *
 	 * @return string
 	 */
-	protected function getClassForType($a_type) {
+	protected static function getClassForType($a_type) {
 		switch ($a_type) {
 			case self::CONTEXT_HUB:
 				return 'hubContextHub';
