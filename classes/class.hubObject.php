@@ -1,5 +1,4 @@
 <?php
-require_once('./Services/Database/classes/class.ilDBMySQL.php');
 require_once('./Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/Hub/classes/OriginProperties/class.hubOriginObjectProperties.php');
 require_once('./Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/Hub/classes/Log/class.hubLog.php');
 require_once('./Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/Hub/classes/class.ilHubPlugin.php');
@@ -87,7 +86,7 @@ abstract class hubObject extends ActiveRecord {
 	/**
 	 * @param hubOrigin $origin
 	 */
-	public function update(hubOrigin $origin) {
+	public function update(hubOrigin $origin = null) {
 		$this->updateInto($origin);
 	}
 
@@ -95,7 +94,7 @@ abstract class hubObject extends ActiveRecord {
 	/**
 	 * @param hubOrigin $origin
 	 */
-	public function create(hubOrigin $origin) {
+	public function create(hubOrigin $origin = null) {
 		static $count;
 		$count ++;
 		if ($count == 1000) {
@@ -136,7 +135,7 @@ abstract class hubObject extends ActiveRecord {
 	 *
 	 * @return hubObject
 	 */
-	public static function find($primary_key) {
+	public static function find($primary_key, array $add_constructor_args = array()) {
 		/**
 		 * @var $obj hubObject
 		 */

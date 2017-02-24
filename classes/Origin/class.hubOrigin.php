@@ -121,7 +121,7 @@ class hubOrigin extends ActiveRecord {
 	 *
 	 * @return hubOrigin
 	 */
-	public static function find($ext_id) {
+	public static function find($ext_id, array $add_constructor_args = array()) {
 		return parent::find($ext_id);
 	}
 
