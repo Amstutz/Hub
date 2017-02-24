@@ -17,7 +17,7 @@ class hubMembershipDisplayGUI extends arDisplayGUI {
 	protected $ar;
 
 
-	public function setTitle() {
+	public function setTitle(string $title = null) {
 		$user = new ilObjUser($this->ar->getUsrId());
 		$this->title = $user->getPublicName();
 	}

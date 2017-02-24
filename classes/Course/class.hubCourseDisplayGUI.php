@@ -15,7 +15,7 @@ class hubCourseDisplayGUI extends arDisplayGUI
      */
     protected $ar;
 
-    public function setTitle(){
+    public function setTitle(string $title = null){
         /**
          * @var hubCourse $hubCourse
          */
