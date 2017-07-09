@@ -16,7 +16,7 @@ class hubUserDisplayGUI extends arDisplayGUI {
     protected $ar;
 
 
-    public function setTitle(string $title = null) {
+    public function setTitle($title = null) {
         $this->title = $this->ar->getFirstname(). " ".$this->ar->getLastname();
     }
 
