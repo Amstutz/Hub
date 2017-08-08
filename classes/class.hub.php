@@ -167,8 +167,8 @@ class hub {
 		switch ($context) {
 			case self::CONTEXT_CRON:
 				$il_context = ilContext::CONTEXT_CRON;
-				$il_context_auth = ilAuthFactory::CONTEXT_CRON;
-				$_COOKIE['ilClientId'] = $_SERVER['argv'][3];
+				$il_context_auth = ilAuthFactory::CONTEXT_WEB;
+				define(CLIENT_ID, $_SERVER['argv'][3]);
 				$_POST['username'] = $_SERVER['argv'][1];
 				$_POST['password'] = $_SERVER['argv'][2];
 				break;
