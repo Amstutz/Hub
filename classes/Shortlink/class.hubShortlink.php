@@ -90,7 +90,8 @@ class hubShortlink {
             $this->redirectToBase();
         }
 
-        if($this->getOriginObjectProperties()->get(hubOriginObjectPropertiesFields::F_FORCE_LOGIN) && $ilUser->getLogin() == "anonymous"){
+        if($this->getOriginObjectProperties()->get
+		        (hubOriginObjectPropertiesFields::F_FORCE_LOGIN) && ($ilUser->getLogin() == "anonymous")){
             $this->redirectToLogin();
         }
 
@@ -223,7 +224,8 @@ class hubShortlink {
 	}
 
     protected function redirectToLogin(){
-        $link = $this->getServer() . '/login.php?target=uihk_hub_'.$this->getExtId();
+        $link = $this->getServer() . '/login.php?target=uihk_hub_'.$this->getExtId()
+		        ."&cmd=force_login";
         ilUtil::redirect($link);
     }
 
