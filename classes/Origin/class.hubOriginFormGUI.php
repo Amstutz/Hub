@@ -27,12 +27,14 @@ class hubOriginFormGUI extends ilPropertyFormGUI {
 
 
 	public function __construct($parent_gui, hubOrigin $origin, $disable_required = false) {
-		global $ilCtrl;
+		global $ilCtrl, $DIC;
+
 		$this->origin = $origin;
 		$this->parent_gui = $parent_gui;
 		$this->ctrl = $ilCtrl;
 		$this->ctrl->saveParameter($parent_gui, 'origin_id');
 		$this->pl = new ilHubPlugin();
+        $this->lng = $DIC->language();
 		$this->locked = $this->origin->isLocked();
 		$this->required = ! $disable_required;
 		$this->initForm();
