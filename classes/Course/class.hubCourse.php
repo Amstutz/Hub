@@ -127,25 +127,20 @@ class hubCourse extends hubRepositoryObject {
 		// Notification
         // TZ: QUICK FIX for ilias53
         // Factory returns an object that does not include the autoCheck() function. Commenting it leads to other errors
-        /*
+
 		if ($this->props()->get(hubCourseFields::F_SEND_NOTIFICATION)) {
 			global $ilSetting;
 			$mail = new ilMimeMail();
-			$mail->autoCheck(false);
-            if($this->props()->get(hubCourseFields::F_NOT_FROM)){
-                $mail->From($this->props()->get(hubCourseFields::F_NOT_FROM));
-            }
-            else{
-                $mail->From($ilSetting->get('admin_email'));
-            }
 
+            $sender = (new ilMailMimeSenderFactory($ilSetting))->system();
+            $mail->From($sender);
 			$mail->To($this->getNotificationEmail());
 			$body = hubCourseFields::getReplacedText($this);
 			$mail->Subject($this->props()->get(hubCourseFields::F_NOT_SUBJECT));
 			$mail->Body($body);
 			$mail->Send();
 		}
-        */
+
 		$history = $this->getHistoryObject();
 		$history->setIliasId($this->ilias_object->getRefId());
 		$history->setIliasIdType(self::ILIAS_ID_TYPE_REF_ID);
