@@ -223,7 +223,7 @@ class hubShortlink {
 	}
 
     protected function redirectToLogin(){
-        $link = $this->getServer() . '/login.php?target=uihk_hub_'.$this->getExtId();
+        $link = $this->getServer() . '/login.php?target=uihk_hub_'.$this->getExtId().'&cmd=force_login';
         ilUtil::redirect($link);
     }
 
