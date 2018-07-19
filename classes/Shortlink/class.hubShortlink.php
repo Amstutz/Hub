@@ -180,7 +180,7 @@ class hubShortlink {
      */
     public function setServer()
     {
-        $this->server = ($_SERVER['HTTPS'] == 'on' ? 'http://' : 'http://') . $_SERVER['SERVER_NAME'];
+        $this->server = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'];
     }
 
     /**
